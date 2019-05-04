@@ -36,7 +36,21 @@ def newpost():
     if request.method == 'POST':
         title = request.form['blogtitle']
         body = request.form['blogtext']
-    
+        title_error = ''
+        body_error = ''
+        error_count = 0
+
+
+        if title == '':
+            title_error = 'Please enter a title'
+            error_count += 1
+        if body == '':
+            body_error = 'Please enter a blog'
+            error_count += 1
+        if error_count > 0:
+            return render_template('new_blog.html', title = 'New Blog Entry', title_error = title_error,
+                body_error = body_error)
+
         new_entry = Blog(title, body)
     
         db.session.add(new_entry)
