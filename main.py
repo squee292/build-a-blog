@@ -23,11 +23,13 @@ class Blog(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('main_blog.html', title = "Build a blog")
+    blogs = Blog.query.all()
+    return render_template('main_blog.html', title = "Build a blog", blogs = blogs)
 
 @app.route('/blog')
 def blogpage():
-    return render_template('main_blog.html' ,title = "Build a blog")
+    blogs = Blog.query.all()
+    return render_template('main_blog.html' ,title = "Build a blog", blogs = blogs)
 
 @app.route('/newpost', methods = ['POST', 'GET'])
 def newpost():
