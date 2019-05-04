@@ -61,6 +61,9 @@ def newpost():
     else:
         return render_template('new_blog.html', title = 'New Blog Entry')
 
+@app.route('/singleblog' methods = ['GET'])
+def single_blog():
+    return render_template("single_blog.html")
 
 
 
