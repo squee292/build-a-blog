@@ -10,8 +10,7 @@
             {% for blog in blogs %}
             <li>
                 <form action="/blog">
-                    <input type="hidden" name = "blog_id" value = {{blog.id}}>
-                    <h2><a href="/singleblog">{{blog.title}}</a></h2>
+                    <h2><a href="./blog?id={{blog.id}}">{{blog.title}}</a></h2>
                     <p>{{blog.body}}</p>
                 </form>
                 <hr>
